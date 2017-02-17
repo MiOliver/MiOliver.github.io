@@ -104,7 +104,7 @@ pom.xml中添加Crawler4J
 pom.xml中添加Crawler4J
 12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;edu.uci.ics&amp;lt;/groupId">
 <meta property="og:image" content="https://mioliver.github.io/2017/02/17/crawler4j-jsoup/crawler.png">
-<meta property="og:updated_time" content="2017-02-17T04:13:55.000Z">
+<meta property="og:updated_time" content="2017-02-17T04:16:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="crawler4j+jsoup实现网页内容抓取">
 <meta name="twitter:description" content="昨天花了一下午的时间，使用Crawler4J+Jsoup完成了一个简单的数据抓取工作（其实楼主最近比较关注房源信息），效果见下图，废话不多说，看看怎么实现的。
@@ -399,7 +399,10 @@ pom.xml中添加Crawler4J
 <li>Image crawler：一个简单的图片爬虫：从指定域下载图片并存在指定文件夹。这个例子演示了怎样用crawler4j抓取二进制内容。</li>
 <li>Collecting data from threads：这个例子演示了控制器怎样从抓取线程中收集数据/统计</li>
 <li>Multiple crawlers：这个例子演示了如何同时运行两个不同的爬虫。</li>
-<li>Shutdown crawling：这个例子演示了可以通过向控制器发送“shutdown”命令优雅的关闭抓取过程。  <h2 id="3-JSoup使用"><a href="#3-JSoup使用" class="headerlink" title="3.JSoup使用"></a>3.JSoup使用</h2>可以直接参考官方的<a href="https://jsoup.org/cookbook/" target="_blank" rel="external">cookbook</a>.API文档讲的都很详细。<h2 id="4-实例分享"><a href="#4-实例分享" class="headerlink" title="4.实例分享"></a>4.实例分享</h2></li>
+<li>Shutdown crawling：这个例子演示了可以通过向控制器发送“shutdown”命令优雅的关闭抓取过程。   </li>
+</ul>
+<h2 id="3-JSoup使用"><a href="#3-JSoup使用" class="headerlink" title="3.JSoup使用"></a>3.JSoup使用</h2><p>可以直接参考官方的<a href="https://jsoup.org/cookbook/" target="_blank" rel="external">cookbook</a>.API文档讲的都很详细。</p>
+<h2 id="4-实例分享"><a href="#4-实例分享" class="headerlink" title="4.实例分享"></a>4.实例分享</h2><ul>
 <li><p>Controller</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> Controller &#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) throws Exception &#123;</div><div class="line">        <span class="keyword">String</span> crawlStorageFolder = <span class="string">"/Users/oliver/test/crawler"</span>;</div><div class="line">        <span class="comment">//设置要使用的Crawler线程数量</span></div><div class="line">        <span class="keyword">int</span> numberOfCrawlers = <span class="number">1</span>;</div><div class="line"></div><div class="line">        CrawlConfig <span class="built_in">config</span> = <span class="keyword">new</span> CrawlConfig();</div><div class="line">        <span class="built_in">config</span>.setCrawlStorageFolder(crawlStorageFolder);</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">         * Instantiate the controller for this crawl.</div><div class="line">         */</div><div class="line">         </div><div class="line">        PageFetcher pageFetcher = <span class="keyword">new</span> PageFetcher(<span class="built_in">config</span>);</div><div class="line">        RobotstxtConfig robotstxtConfig = <span class="keyword">new</span> RobotstxtConfig();</div><div class="line">        <span class="comment">//禁用robot.txt检查</span></div><div class="line">        robotstxtConfig.setEnabled(false);</div><div class="line">        RobotstxtServer robotsServer = <span class="keyword">new</span> RobotstxtServer(robotstxtConfig, pageFetcher);</div><div class="line">        </div><div class="line">        CrawlController controller = <span class="keyword">new</span> CrawlController(<span class="built_in">config</span>, pageFetcher, robotsServer);</div><div class="line"></div><div class="line">        <span class="comment">//添加种子，你要扫描的网址</span></div><div class="line">        controller.addSeed(<span class="string">"http://website.com/"</span>);</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">         * Start the crawl. This is a blocking operation, meaning that your code</div><div class="line">         * will reach the line after this only when crawling is finished.</div><div class="line">         */</div><div class="line">       controller.start(LjCrawler.<span class="keyword">class</span>, numberOfCrawlers);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -457,6 +460,10 @@ pom.xml中添加Crawler4J
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/17/hexo-image/" rel="prev" title="Hexo 图片引用解决方案">
+                Hexo 图片引用解决方案 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -526,7 +533,7 @@ pom.xml中添加Crawler4J
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -544,7 +551,7 @@ pom.xml中添加Crawler4J
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

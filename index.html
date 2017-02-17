@@ -265,6 +265,159 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/02/17/hexo-image/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Oliver">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Oliver's Notes">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Oliver's Notes" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/17/hexo-image/" itemprop="url">
+                  Hexo 图片引用解决方案
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T13:08:56+08:00">
+                2017-02-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>记录几种hexo使用图片的方式：</p>
+<h2 id="传统方式"><a href="#传统方式" class="headerlink" title="传统方式"></a>传统方式</h2><p>采用html标签方式引用：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">img</span> src=<span class="string">"/2016/3/9/本地图片测试/logo.jpg"</span> alt=<span class="string">"logo"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>或者使用markdown语法：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">image</span>](<span class="link">/img/imageName.png</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="hexo-标签方式"><a href="#hexo-标签方式" class="headerlink" title="hexo 标签方式"></a>hexo 标签方式</h2><p>1.首先确认_config.yml 中有 post_asset_folder:true。<br>Hexo 提供了一种更方便管理 Asset 的设定：post_asset_folder<br>当您设置post_asset_folder为true参数后，在建立文件时，Hexo<br>会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，可以更方便的使用资源。</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">asset_img</span> test.png image_title %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<p>asset_img 表示要引用图片, test.png是资源名称, 后面的是图片显示的标题</p>
+<p>然后执行 <strong>hexo generate</strong> (或者hexo g)<br>就会将资源拷贝到和生成的文章相同的目录下,这样就可以了.在本地查看会显示不正常,但是部署到github上就显示正常了.</p>
+<h2 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h2><p>回到hexo的主目录下执行<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install https:<span class="regexp">//gi</span>thub.com<span class="regexp">/CodeFalling/</span>hexo-asset-image --save</div></pre></td></tr></table></figure></p>
+<p>完成安装后用hexo新建文章的时候会发现_posts目录下面会多出一个和文章名字一样的文件夹。图片就可以放在文件夹下面。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">本地图片测试</div><div class="line">├── apppicker<span class="selector-class">.jpg</span></div><div class="line">├── logo<span class="selector-class">.jpg</span></div><div class="line">└── rules<span class="selector-class">.jpg</span></div><div class="line">本地图片测试.md</div></pre></td></tr></table></figure></p>
+<p>这样的目录结构（目录名和文章名一致），只要使用<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">logo</span>](<span class="link">本地图片测试/logo.jpg</span>)</div></pre></td></tr></table></figure></p>
+<p>就可以插入图片。其中[]里面写相关图片标题。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/02/17/crawler4j-jsoup/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -385,7 +538,10 @@
 <li>Image crawler：一个简单的图片爬虫：从指定域下载图片并存在指定文件夹。这个例子演示了怎样用crawler4j抓取二进制内容。</li>
 <li>Collecting data from threads：这个例子演示了控制器怎样从抓取线程中收集数据/统计</li>
 <li>Multiple crawlers：这个例子演示了如何同时运行两个不同的爬虫。</li>
-<li>Shutdown crawling：这个例子演示了可以通过向控制器发送“shutdown”命令优雅的关闭抓取过程。  <h2 id="3-JSoup使用"><a href="#3-JSoup使用" class="headerlink" title="3.JSoup使用"></a>3.JSoup使用</h2>可以直接参考官方的<a href="https://jsoup.org/cookbook/" target="_blank" rel="external">cookbook</a>.API文档讲的都很详细。<h2 id="4-实例分享"><a href="#4-实例分享" class="headerlink" title="4.实例分享"></a>4.实例分享</h2></li>
+<li>Shutdown crawling：这个例子演示了可以通过向控制器发送“shutdown”命令优雅的关闭抓取过程。   </li>
+</ul>
+<h2 id="3-JSoup使用"><a href="#3-JSoup使用" class="headerlink" title="3.JSoup使用"></a>3.JSoup使用</h2><p>可以直接参考官方的<a href="https://jsoup.org/cookbook/" target="_blank" rel="external">cookbook</a>.API文档讲的都很详细。</p>
+<h2 id="4-实例分享"><a href="#4-实例分享" class="headerlink" title="4.实例分享"></a>4.实例分享</h2><ul>
 <li><p>Controller</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> Controller &#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) throws Exception &#123;</div><div class="line">        <span class="keyword">String</span> crawlStorageFolder = <span class="string">"/Users/oliver/test/crawler"</span>;</div><div class="line">        <span class="comment">//设置要使用的Crawler线程数量</span></div><div class="line">        <span class="keyword">int</span> numberOfCrawlers = <span class="number">1</span>;</div><div class="line"></div><div class="line">        CrawlConfig <span class="built_in">config</span> = <span class="keyword">new</span> CrawlConfig();</div><div class="line">        <span class="built_in">config</span>.setCrawlStorageFolder(crawlStorageFolder);</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">         * Instantiate the controller for this crawl.</div><div class="line">         */</div><div class="line">         </div><div class="line">        PageFetcher pageFetcher = <span class="keyword">new</span> PageFetcher(<span class="built_in">config</span>);</div><div class="line">        RobotstxtConfig robotstxtConfig = <span class="keyword">new</span> RobotstxtConfig();</div><div class="line">        <span class="comment">//禁用robot.txt检查</span></div><div class="line">        robotstxtConfig.setEnabled(false);</div><div class="line">        RobotstxtServer robotsServer = <span class="keyword">new</span> RobotstxtServer(robotstxtConfig, pageFetcher);</div><div class="line">        </div><div class="line">        CrawlController controller = <span class="keyword">new</span> CrawlController(<span class="built_in">config</span>, pageFetcher, robotsServer);</div><div class="line"></div><div class="line">        <span class="comment">//添加种子，你要扫描的网址</span></div><div class="line">        controller.addSeed(<span class="string">"http://website.com/"</span>);</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">         * Start the crawl. This is a blocking operation, meaning that your code</div><div class="line">         * will reach the line after this only when crawling is finished.</div><div class="line">         */</div><div class="line">       controller.start(LjCrawler.<span class="keyword">class</span>, numberOfCrawlers);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -695,7 +851,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -713,7 +869,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

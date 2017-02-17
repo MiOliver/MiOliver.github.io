@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,github,github.io," />
+  <meta name="keywords" content="图片引用,tags,plugin,hexo," />
 
 
 
@@ -87,22 +87,25 @@
 
 
 
-<meta name="description" content="近来发现一种很方便的搭建个人博客的方法，不需要云服务器，使用hexo+github实现，完全免费，效果还不错。此站是博主搭建出来的效果。
-1.准备GitHub1.1 新建gitbub库如果没有，去github申请一个；然后新建一个Repository,名字为yourname.github.io; 
-1.2 clone gitbub库clone 到本地机器1git clone https://git">
+<meta name="description" content="记录几种hexo使用图片的方式：
+传统方式采用html标签方式引用：1&amp;lt;img src=&quot;/2016/3/9/本地图片测试/logo.jpg&quot; alt=&quot;logo&quot;&amp;gt;
+或者使用markdown语法：1![image](/img/imageName.png)
+hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 提供了一种更方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo+github搭建个人博客">
-<meta property="og:url" content="https://mioliver.github.io/2017/02/13/github-io-hexo/index.html">
+<meta property="og:title" content="Hexo 图片引用解决方案">
+<meta property="og:url" content="https://mioliver.github.io/2017/02/17/hexo-image/index.html">
 <meta property="og:site_name" content="Oliver's Notes">
-<meta property="og:description" content="近来发现一种很方便的搭建个人博客的方法，不需要云服务器，使用hexo+github实现，完全免费，效果还不错。此站是博主搭建出来的效果。
-1.准备GitHub1.1 新建gitbub库如果没有，去github申请一个；然后新建一个Repository,名字为yourname.github.io; 
-1.2 clone gitbub库clone 到本地机器1git clone https://git">
-<meta property="og:updated_time" content="2017-02-14T03:40:40.000Z">
+<meta property="og:description" content="记录几种hexo使用图片的方式：
+传统方式采用html标签方式引用：1&amp;lt;img src=&quot;/2016/3/9/本地图片测试/logo.jpg&quot; alt=&quot;logo&quot;&amp;gt;
+或者使用markdown语法：1![image](/img/imageName.png)
+hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 提供了一种更方">
+<meta property="og:updated_time" content="2017-02-17T05:09:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo+github搭建个人博客">
-<meta name="twitter:description" content="近来发现一种很方便的搭建个人博客的方法，不需要云服务器，使用hexo+github实现，完全免费，效果还不错。此站是博主搭建出来的效果。
-1.准备GitHub1.1 新建gitbub库如果没有，去github申请一个；然后新建一个Repository,名字为yourname.github.io; 
-1.2 clone gitbub库clone 到本地机器1git clone https://git">
+<meta name="twitter:title" content="Hexo 图片引用解决方案">
+<meta name="twitter:description" content="记录几种hexo使用图片的方式：
+传统方式采用html标签方式引用：1&amp;lt;img src=&quot;/2016/3/9/本地图片测试/logo.jpg&quot; alt=&quot;logo&quot;&amp;gt;
+或者使用markdown语法：1![image](/img/imageName.png)
+hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 提供了一种更方">
 
 
 
@@ -130,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://mioliver.github.io/2017/02/13/github-io-hexo/"/>
+  <link rel="canonical" href="https://mioliver.github.io/2017/02/17/hexo-image/"/>
 
 
 
 
 
-  <title> hexo+github搭建个人博客 | Oliver's Notes </title>
+  <title> Hexo 图片引用解决方案 | Oliver's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -273,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/02/13/github-io-hexo/">
+  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/02/17/hexo-image/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Oliver">
@@ -297,7 +300,7 @@
             
             
               
-                hexo+github搭建个人博客
+                Hexo 图片引用解决方案
               
             
           </h1>
@@ -312,8 +315,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-13T18:20:48+08:00">
-                2017-02-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T13:08:56+08:00">
+                2017-02-17
               </time>
             
 
@@ -370,93 +373,17 @@
       
 
       
-        <p>近来发现一种很方便的搭建个人博客的方法，不需要云服务器，使用<strong>hexo</strong>+<strong>github</strong>实现，完全免费，效果还不错。此站是博主搭建出来的效果。</p>
-<h2 id="1-准备GitHub"><a href="#1-准备GitHub" class="headerlink" title="1.准备GitHub"></a>1.准备GitHub</h2><h3 id="1-1-新建gitbub库"><a href="#1-1-新建gitbub库" class="headerlink" title="1.1 新建gitbub库"></a>1.1 新建gitbub库</h3><p>如果没有，去<a href="https://github.com" target="_blank" rel="external">github</a>申请一个；然后新建一个Repository,名字为yourname.github.io; </p>
-<h3 id="1-2-clone-gitbub库"><a href="#1-2-clone-gitbub库" class="headerlink" title="1.2 clone gitbub库"></a>1.2 clone gitbub库</h3><p>clone 到本地机器<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/yourId/yourname.github.io.git</div></pre></td></tr></table></figure></p>
-<h2 id="2-hexo使用"><a href="#2-hexo使用" class="headerlink" title="2.hexo使用"></a>2.hexo使用</h2><h3 id="2-1-hexo-安装"><a href="#2-1-hexo-安装" class="headerlink" title="2.1 hexo 安装"></a>2.1 hexo 安装</h3><p>使用前提，本机已经安装git 和 nodejs<br><a href="https://hexo.io/docs/" target="_blank" rel="external">教程参见</a></p>
-<h3 id="2-2-生成博客"><a href="#2-2-生成博客" class="headerlink" title="2.2 生成博客"></a>2.2 生成博客</h3><ul>
-<li><p>初始化目录</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo init &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>cd &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>npm install</div></pre></td></tr></table></figure>
-</li>
-<li><p>新建文档</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">new</span> [layout] &lt;<span class="built_in">title</span>&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>layout</td>
-<td>默认使用post，存放位置为：~/你的文档根目录/source/_posts</td>
-</tr>
-<tr>
-<td>title</td>
-<td>文档名</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>编辑文档<br>文档编辑，编辑使用<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">markdown</a>语法,不赘述；<br>需要注意，front-master一般采用这种格式：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">title:</span> mvn tutorial</div><div class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="bullet">-02</span><span class="bullet">-13</span> <span class="number">13</span>:<span class="number">22</span>:<span class="number">33</span></div><div class="line"><span class="attr">tags:</span> </div><div class="line"><span class="bullet">-</span> maven </div><div class="line"><span class="bullet">-</span> learn</div><div class="line"><span class="attr">categories:</span></div><div class="line"><span class="bullet">-</span> tools</div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tags</td>
-<td>标签</td>
-</tr>
-<tr>
-<td>categories</td>
-<td>文档分类</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>生成网站</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">generate</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>部署网站</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo deploy</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>==注意：==<br>部署前设置部署方式和目标url;<br>部署之前可以使用命令：<strong>hexo server</strong> 本地运行看一下。<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">deploy:</span></div><div class="line"><span class="symbol">  type:</span> git</div><div class="line"><span class="symbol">  repo:</span> <span class="params">&lt;repository url&gt;</span></div><div class="line"><span class="symbol">  branch:</span> [branch]</div><div class="line"><span class="symbol">  message:</span> [message]</div></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>repo</td>
-<td>库（Repository）地址</td>
-</tr>
-<tr>
-<td>branch</td>
-<td>分支名称。如果您使用的是 GitHub 或 GitCafe 的话，程序会尝试自动检测。</td>
-</tr>
-<tr>
-<td>message</td>
-<td>自定义提交信息 (默认为 update+提交时间)</td>
-</tr>
-</tbody>
-</table>
-<p>至此完成，你可以访问自己的github.io地址：yourGithubId.github.io</p>
-<h3 id="2-3-主题使用"><a href="#2-3-主题使用" class="headerlink" title="2.3 主题使用"></a>2.3 主题使用</h3><p>好的博客需要一个好看的主题（楼主使用的是Next主题，<strong>关于标签和分类的index.html文件生成问题</strong>需要<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">参考</a>   ），<a href="https://hexo.io/themes/" target="_blank" rel="external">主题地址</a>,如何装饰呢？</p>
-<p>点击相关主题，找到此主题相关的github地址，举例：某主题地址是<br><a href="https://github.com/levblanc/hexo-theme-aero-dual" target="_blank" rel="external">https://github.com/levblanc/hexo-theme-aero-dual</a><br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="keyword">clone</span> <span class="title">https</span>://github.com/levblanc/hexo-theme-aero-dual.git themes/aero-dual</div></pre></td></tr></table></figure></p>
-<p>clone 主题项目到你的博客的themes目录下，便安装完成。<br>更改你博客的目录下的  _config.yml 文件中theme的值为aero-dual；然后hexo server 查看是否已经装饰上主题。</p>
+        <p>记录几种hexo使用图片的方式：</p>
+<h2 id="传统方式"><a href="#传统方式" class="headerlink" title="传统方式"></a>传统方式</h2><p>采用html标签方式引用：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">img</span> src=<span class="string">"/2016/3/9/本地图片测试/logo.jpg"</span> alt=<span class="string">"logo"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>或者使用markdown语法：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">image</span>](<span class="link">/img/imageName.png</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="hexo-标签方式"><a href="#hexo-标签方式" class="headerlink" title="hexo 标签方式"></a>hexo 标签方式</h2><p>1.首先确认_config.yml 中有 post_asset_folder:true。<br>Hexo 提供了一种更方便管理 Asset 的设定：post_asset_folder<br>当您设置post_asset_folder为true参数后，在建立文件时，Hexo<br>会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，可以更方便的使用资源。</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">asset_img</span> test.png image_title %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
+<p>asset_img 表示要引用图片, test.png是资源名称, 后面的是图片显示的标题</p>
+<p>然后执行 <strong>hexo generate</strong> (或者hexo g)<br>就会将资源拷贝到和生成的文章相同的目录下,这样就可以了.在本地查看会显示不正常,但是部署到github上就显示正常了.</p>
+<h2 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h2><p>回到hexo的主目录下执行<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install https:<span class="regexp">//gi</span>thub.com<span class="regexp">/CodeFalling/</span>hexo-asset-image --save</div></pre></td></tr></table></figure></p>
+<p>完成安装后用hexo新建文章的时候会发现_posts目录下面会多出一个和文章名字一样的文件夹。图片就可以放在文件夹下面。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">本地图片测试</div><div class="line">├── apppicker<span class="selector-class">.jpg</span></div><div class="line">├── logo<span class="selector-class">.jpg</span></div><div class="line">└── rules<span class="selector-class">.jpg</span></div><div class="line">本地图片测试.md</div></pre></td></tr></table></figure></p>
+<p>这样的目录结构（目录名和文章名一致），只要使用<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">logo</span>](<span class="link">本地图片测试/logo.jpg</span>)</div></pre></td></tr></table></figure></p>
+<p>就可以插入图片。其中[]里面写相关图片标题。</p>
 
       
     </div>
@@ -480,11 +407,13 @@
       
         <div class="post-tags">
           
+            <a href="/tags/图片引用/" rel="tag"># 图片引用</a>
+          
+            <a href="/tags/tags/" rel="tag"># tags</a>
+          
+            <a href="/tags/plugin/" rel="tag"># plugin</a>
+          
             <a href="/tags/hexo/" rel="tag"># hexo</a>
-          
-            <a href="/tags/github/" rel="tag"># github</a>
-          
-            <a href="/tags/github-io/" rel="tag"># github.io</a>
           
         </div>
       
@@ -497,15 +426,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/02/17/crawler4j-jsoup/" rel="next" title="crawler4j+jsoup实现网页内容抓取">
+                <i class="fa fa-chevron-left"></i> crawler4j+jsoup实现网页内容抓取
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/17/crawler4j-jsoup/" rel="prev" title="crawler4j+jsoup实现网页内容抓取">
-                crawler4j+jsoup实现网页内容抓取 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -657,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备GitHub"><span class="nav-number">1.</span> <span class="nav-text">1.准备GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-新建gitbub库"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 新建gitbub库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-clone-gitbub库"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 clone gitbub库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-hexo使用"><span class="nav-number">2.</span> <span class="nav-text">2.hexo使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-hexo-安装"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 hexo 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-生成博客"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 生成博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-主题使用"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 主题使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统方式"><span class="nav-number">1.</span> <span class="nav-text">传统方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-标签方式"><span class="nav-number">2.</span> <span class="nav-text">hexo 标签方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件推荐"><span class="nav-number">3.</span> <span class="nav-text">插件推荐</span></a></li></ol></div>
             
 
           </div>
