@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Crawler4j,Jsoup,JDBC,爬虫," />
 
 
 
@@ -87,12 +87,33 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Oliver's Notes">
-<meta property="og:url" content="https://mioliver.github.io/index.html">
+<meta name="description" content="昨天花了一下午的时间，使用Crawler4J+Jsoup完成了一个简单的数据抓取工作（其实楼主最近比较关注房源信息），效果见下图，废话不多说，看看怎么实现的。
+
+1.准备工作
+新建一个maven项目，或者使用已有的maven项目
+pom.xml中添加Crawler4J
+12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;edu.uci.ics&amp;lt;/groupId">
+<meta property="og:type" content="article">
+<meta property="og:title" content="crawler4j+jsoup实现网页内容抓取">
+<meta property="og:url" content="https://mioliver.github.io/2017/02/17/crawler4j-jsoup/index.html">
 <meta property="og:site_name" content="Oliver's Notes">
+<meta property="og:description" content="昨天花了一下午的时间，使用Crawler4J+Jsoup完成了一个简单的数据抓取工作（其实楼主最近比较关注房源信息），效果见下图，废话不多说，看看怎么实现的。
+
+1.准备工作
+新建一个maven项目，或者使用已有的maven项目
+pom.xml中添加Crawler4J
+12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;edu.uci.ics&amp;lt;/groupId">
+<meta property="og:image" content="https://mioliver.github.io/2017/02/17/crawler4j-jsoup/crawler.png">
+<meta property="og:updated_time" content="2017-02-17T04:13:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Oliver's Notes">
+<meta name="twitter:title" content="crawler4j+jsoup实现网页内容抓取">
+<meta name="twitter:description" content="昨天花了一下午的时间，使用Crawler4J+Jsoup完成了一个简单的数据抓取工作（其实楼主最近比较关注房源信息），效果见下图，废话不多说，看看怎么实现的。
+
+1.准备工作
+新建一个maven项目，或者使用已有的maven项目
+pom.xml中添加Crawler4J
+12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;edu.uci.ics&amp;lt;/groupId">
+<meta name="twitter:image" content="https://mioliver.github.io/2017/02/17/crawler4j-jsoup/crawler.png">
 
 
 
@@ -120,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="https://mioliver.github.io/"/>
+  <link rel="canonical" href="https://mioliver.github.io/2017/02/17/crawler4j-jsoup/"/>
 
 
 
 
 
-  <title> Oliver's Notes </title>
+  <title> crawler4j+jsoup实现网页内容抓取 | Oliver's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -151,9 +172,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,9 +273,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -289,10 +308,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/02/17/crawler4j-jsoup/" itemprop="url">
-                  crawler4j+jsoup实现网页内容抓取
-                </a>
+                crawler4j+jsoup实现网页内容抓取
               
             
           </h1>
@@ -365,9 +381,7 @@
       
 
       
-        
-          
-            <p>昨天花了一下午的时间，使用<a href="https://github.com/yasserg/crawler4j" target="_blank" rel="external">Crawler4J</a>+<a href="https://jsoup.org/" target="_blank" rel="external">Jsoup</a>完成了一个简单的数据抓取工作（其实楼主最近比较关注房源信息），效果见下图，废话不多说，看看怎么实现的。</p>
+        <p>昨天花了一下午的时间，使用<a href="https://github.com/yasserg/crawler4j" target="_blank" rel="external">Crawler4J</a>+<a href="https://jsoup.org/" target="_blank" rel="external">Jsoup</a>完成了一个简单的数据抓取工作（其实楼主最近比较关注房源信息），效果见下图，废话不多说，看看怎么实现的。</p>
 <img src="/2017/02/17/crawler4j-jsoup/crawler.png" alt="抓取到的数据" title="抓取到的数据">
 <h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h2><ul>
 <li>新建一个maven项目，或者使用已有的maven项目</li>
@@ -393,268 +407,72 @@
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LjCrawler</span> <span class="keyword">extends</span> <span class="title">WebCrawler</span> &#123;</span></div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Logger logger= LoggerFactory.getLogger(LjCrawler.<span class="keyword">class</span>);</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Pattern FILTERS = Pattern.compile(<span class="string">".*(\\.(css|js|gif|jpg"</span></div><div class="line">            + <span class="string">"|png|mp3|mp3|zip|gz))$"</span>);</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="keyword">private</span> BlogCategoryMapper blogCategoryMapper;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> HouseRecordMapper houseRecordMapper;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> LjCrawler() &#123;</div><div class="line">        houseRecordMapper =SpringBeanFactoryUtils.getApplicationContext().getBean(HouseRecordMapper.<span class="keyword">class</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">boolean</span> shouldVisit(Page referringPage, WebURL url) &#123;</div><div class="line">        String href = url.getURL().toLowerCase();</div><div class="line">        <span class="keyword">return</span> !FILTERS.matcher(href).matches()</div><div class="line">                &amp;&amp; href.startsWith(<span class="string">"http://yourwebsite.com"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> visit(Page page) &#123;</div><div class="line">        String url = page.getWebURL().getURL();</div><div class="line">        logger.info(<span class="string">"URL: "</span> + url);</div><div class="line">        <span class="keyword">if</span> (page.getParseData() <span class="keyword">instanceof</span> HtmlParseData) &#123;</div><div class="line">            HtmlParseData htmlParseData = (HtmlParseData) page.getParseData();</div><div class="line">            String html = htmlParseData.getHtml();</div><div class="line">            Document document= Jsoup.parse(html);</div><div class="line">            Elements elements= document.body().getElementsByClass(<span class="string">"sellListContent"</span>);</div><div class="line">            <span class="keyword">for</span>(Element <span class="string">e:</span>elements)&#123;</div><div class="line">                HouseRecord record=<span class="keyword">new</span> HouseRecord();</div><div class="line">                Elements info= e.getElementsByClass(<span class="string">"clear"</span>).get(<span class="number">1</span>).getAllElements();</div><div class="line">            </div><div class="line">            <span class="comment">//todo  your process </span></div><div class="line">            </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/02/13/github-io-hexo/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Oliver">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Oliver's Notes">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Oliver's Notes" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/13/github-io-hexo/" itemprop="url">
-                  hexo+github搭建个人博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-13T18:20:48+08:00">
-                2017-02-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Crawler4j/" rel="tag"># Crawler4j</a>
           
-
+            <a href="/tags/Jsoup/" rel="tag"># Jsoup</a>
           
-            
+            <a href="/tags/JDBC/" rel="tag"># JDBC</a>
           
-
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
           
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-            <p>近来发现一种很方便的搭建个人博客的方法，不需要云服务器，使用<strong>hexo</strong>+<strong>github</strong>实现，完全免费，效果还不错。此站是博主搭建出来的效果。</p>
-<h2 id="1-准备GitHub"><a href="#1-准备GitHub" class="headerlink" title="1.准备GitHub"></a>1.准备GitHub</h2><h3 id="1-1-新建gitbub库"><a href="#1-1-新建gitbub库" class="headerlink" title="1.1 新建gitbub库"></a>1.1 新建gitbub库</h3><p>如果没有，去<a href="https://github.com" target="_blank" rel="external">github</a>申请一个；然后新建一个Repository,名字为yourname.github.io; </p>
-<h3 id="1-2-clone-gitbub库"><a href="#1-2-clone-gitbub库" class="headerlink" title="1.2 clone gitbub库"></a>1.2 clone gitbub库</h3><p>clone 到本地机器<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/yourId/yourname.github.io.git</div></pre></td></tr></table></figure></p>
-<h2 id="2-hexo使用"><a href="#2-hexo使用" class="headerlink" title="2.hexo使用"></a>2.hexo使用</h2><h3 id="2-1-hexo-安装"><a href="#2-1-hexo-安装" class="headerlink" title="2.1 hexo 安装"></a>2.1 hexo 安装</h3><p>使用前提，本机已经安装git 和 nodejs<br><a href="https://hexo.io/docs/" target="_blank" rel="external">教程参见</a></p>
-<h3 id="2-2-生成博客"><a href="#2-2-生成博客" class="headerlink" title="2.2 生成博客"></a>2.2 生成博客</h3><ul>
-<li><p>初始化目录</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo init &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>cd &lt;folder&gt;</div><div class="line"><span class="variable">$ </span>npm install</div></pre></td></tr></table></figure>
-</li>
-<li><p>新建文档</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">new</span> [layout] &lt;<span class="built_in">title</span>&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>layout</td>
-<td>默认使用post，存放位置为：~/你的文档根目录/source/_posts</td>
-</tr>
-<tr>
-<td>title</td>
-<td>文档名</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>编辑文档<br>文档编辑，编辑使用<a href="http://wowubuntu.com/markdown/" target="_blank" rel="external">markdown</a>语法,不赘述；<br>需要注意，front-master一般采用这种格式：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">title:</span> mvn tutorial</div><div class="line"><span class="attr">date:</span> <span class="number">2017</span><span class="bullet">-02</span><span class="bullet">-13</span> <span class="number">13</span>:<span class="number">22</span>:<span class="number">33</span></div><div class="line"><span class="attr">tags:</span> </div><div class="line"><span class="bullet">-</span> maven </div><div class="line"><span class="bullet">-</span> learn</div><div class="line"><span class="attr">categories:</span></div><div class="line"><span class="bullet">-</span> tools</div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tags</td>
-<td>标签</td>
-</tr>
-<tr>
-<td>categories</td>
-<td>文档分类</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>生成网站</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo <span class="keyword">generate</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>部署网站</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>hexo deploy</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>==注意：==<br>部署前设置部署方式和目标url;<br>部署之前可以使用命令：<strong>hexo server</strong> 本地运行看一下。<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">deploy:</span></div><div class="line"><span class="symbol">  type:</span> git</div><div class="line"><span class="symbol">  repo:</span> <span class="params">&lt;repository url&gt;</span></div><div class="line"><span class="symbol">  branch:</span> [branch]</div><div class="line"><span class="symbol">  message:</span> [message]</div></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>repo</td>
-<td>库（Repository）地址</td>
-</tr>
-<tr>
-<td>branch</td>
-<td>分支名称。如果您使用的是 GitHub 或 GitCafe 的话，程序会尝试自动检测。</td>
-</tr>
-<tr>
-<td>message</td>
-<td>自定义提交信息 (默认为 update+提交时间)</td>
-</tr>
-</tbody>
-</table>
-<p>至此完成，你可以访问自己的github.io地址：yourGithubId.github.io</p>
-<h3 id="2-3-主题使用"><a href="#2-3-主题使用" class="headerlink" title="2.3 主题使用"></a>2.3 主题使用</h3><p>好的博客需要一个好看的主题（楼主使用的是Next主题，<strong>关于标签和分类的index.html文件生成问题</strong>需要<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">参考</a>   ），<a href="https://hexo.io/themes/" target="_blank" rel="external">主题地址</a>,如何装饰呢？</p>
-<p>点击相关主题，找到此主题相关的github地址，举例：某主题地址是<br><a href="https://github.com/levblanc/hexo-theme-aero-dual" target="_blank" rel="external">https://github.com/levblanc/hexo-theme-aero-dual</a><br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="keyword">clone</span> <span class="title">https</span>://github.com/levblanc/hexo-theme-aero-dual.git themes/aero-dual</div></pre></td></tr></table></figure></p>
-<p>clone 主题项目到你的博客的themes目录下，便安装完成。<br>更改你博客的目录下的  _config.yml 文件中theme的值为aero-dual；然后hexo server 查看是否已经装饰上主题。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/13/github-io-hexo/" rel="next" title="hexo+github搭建个人博客">
+                <i class="fa fa-chevron-left"></i> hexo+github搭建个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -662,6 +480,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -681,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -767,6 +598,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备工作"><span class="nav-number">1.</span> <span class="nav-text">1.准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Crawler4J使用"><span class="nav-number">2.</span> <span class="nav-text">2.Crawler4J使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-JSoup使用"><span class="nav-number">3.</span> <span class="nav-text">3.JSoup使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-实例分享"><span class="nav-number">4.</span> <span class="nav-text">4.实例分享</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -866,6 +713,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
