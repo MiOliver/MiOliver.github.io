@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,图片引用,tags,plugin," />
+  <meta name="keywords" content="线上,日志,log,问题排查," />
 
 
 
@@ -87,25 +87,31 @@
 
 
 
-<meta name="description" content="记录几种hexo使用图片的方式：
-传统方式采用html标签方式引用：1&amp;lt;img src=&quot;/2016/3/9/本地图片测试/logo.jpg&quot; alt=&quot;logo&quot;&amp;gt;
-或者使用markdown语法：1![image](/img/imageName.png)
-hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 提供了一种更方">
+<meta name="description" content="线上问题排查ssh登录相关server，然后你可以想干什么干什么了。。。
+查看谋渠道出现的问题,使用grep命令，相关参数可参考1cat  sec-adv.stdout.log |grep  &quot;08-0&quot;
+-C 显示前后20行
+1cat  sec-adv.stdout.log |grep  &quot;08-0&quot; -C30
+统计广告拉取错误次数   -c 计算符合范本样式的列数。
+1cat  sec-adv">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 图片引用解决方案">
-<meta property="og:url" content="https://mioliver.github.io/2017/02/17/hexo-image/index.html">
+<meta property="og:title" content="线上日志排查">
+<meta property="og:url" content="https://mioliver.github.io/2017/03/09/log-grep/index.html">
 <meta property="og:site_name" content="Oliver's Notes">
-<meta property="og:description" content="记录几种hexo使用图片的方式：
-传统方式采用html标签方式引用：1&amp;lt;img src=&quot;/2016/3/9/本地图片测试/logo.jpg&quot; alt=&quot;logo&quot;&amp;gt;
-或者使用markdown语法：1![image](/img/imageName.png)
-hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 提供了一种更方">
-<meta property="og:updated_time" content="2017-02-17T05:09:54.000Z">
+<meta property="og:description" content="线上问题排查ssh登录相关server，然后你可以想干什么干什么了。。。
+查看谋渠道出现的问题,使用grep命令，相关参数可参考1cat  sec-adv.stdout.log |grep  &quot;08-0&quot;
+-C 显示前后20行
+1cat  sec-adv.stdout.log |grep  &quot;08-0&quot; -C30
+统计广告拉取错误次数   -c 计算符合范本样式的列数。
+1cat  sec-adv">
+<meta property="og:updated_time" content="2017-03-10T01:33:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 图片引用解决方案">
-<meta name="twitter:description" content="记录几种hexo使用图片的方式：
-传统方式采用html标签方式引用：1&amp;lt;img src=&quot;/2016/3/9/本地图片测试/logo.jpg&quot; alt=&quot;logo&quot;&amp;gt;
-或者使用markdown语法：1![image](/img/imageName.png)
-hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 提供了一种更方">
+<meta name="twitter:title" content="线上日志排查">
+<meta name="twitter:description" content="线上问题排查ssh登录相关server，然后你可以想干什么干什么了。。。
+查看谋渠道出现的问题,使用grep命令，相关参数可参考1cat  sec-adv.stdout.log |grep  &quot;08-0&quot;
+-C 显示前后20行
+1cat  sec-adv.stdout.log |grep  &quot;08-0&quot; -C30
+统计广告拉取错误次数   -c 计算符合范本样式的列数。
+1cat  sec-adv">
 
 
 
@@ -133,13 +139,13 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
 
 
 
-  <link rel="canonical" href="https://mioliver.github.io/2017/02/17/hexo-image/"/>
+  <link rel="canonical" href="https://mioliver.github.io/2017/03/09/log-grep/"/>
 
 
 
 
 
-  <title> Hexo 图片引用解决方案 | Oliver's Notes </title>
+  <title> 线上日志排查 | Oliver's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -285,7 +291,7 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/02/17/hexo-image/">
+  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/03/09/log-grep/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Oliver">
@@ -309,7 +315,7 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
             
             
               
-                Hexo 图片引用解决方案
+                线上日志排查
               
             
           </h1>
@@ -324,8 +330,8 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T13:08:56+08:00">
-                2017-02-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-09T17:08:56+08:00">
+                2017-03-09
               </time>
             
 
@@ -365,8 +371,8 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/17/hexo-image/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/hexo-image/" itemprop="commentCount"></span>
+                <a href="/2017/03/09/log-grep/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/log-grep/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -392,17 +398,14 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
       
 
       
-        <p>记录几种hexo使用图片的方式：</p>
-<h2 id="传统方式"><a href="#传统方式" class="headerlink" title="传统方式"></a>传统方式</h2><p>采用html标签方式引用：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">img</span> src=<span class="string">"/2016/3/9/本地图片测试/logo.jpg"</span> alt=<span class="string">"logo"</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>或者使用markdown语法：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">image</span>](<span class="link">/img/imageName.png</span>)</div></pre></td></tr></table></figure></p>
-<h2 id="hexo-标签方式"><a href="#hexo-标签方式" class="headerlink" title="hexo 标签方式"></a>hexo 标签方式</h2><p>1.首先确认_config.yml 中有 post_asset_folder:true。<br>Hexo 提供了一种更方便管理 Asset 的设定：post_asset_folder<br>当您设置post_asset_folder为true参数后，在建立文件时，Hexo<br>会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，可以更方便的使用资源。</p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">asset_img</span> test.png image_title %&#125;</span><span class="xml"></span></div></pre></td></tr></table></figure>
-<p>asset_img 表示要引用图片, test.png是资源名称, 后面的是图片显示的标题</p>
-<p>然后执行 <strong>hexo generate</strong> (或者hexo g)<br>就会将资源拷贝到和生成的文章相同的目录下,这样就可以了.在本地查看会显示不正常,但是部署到github上就显示正常了.</p>
-<h2 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h2><p>回到hexo的主目录下执行<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install https:<span class="regexp">//gi</span>thub.com<span class="regexp">/CodeFalling/</span>hexo-asset-image --save</div></pre></td></tr></table></figure></p>
-<p>完成安装后用hexo新建文章的时候会发现_posts目录下面会多出一个和文章名字一样的文件夹。图片就可以放在文件夹下面。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">本地图片测试</div><div class="line">├── apppicker<span class="selector-class">.jpg</span></div><div class="line">├── logo<span class="selector-class">.jpg</span></div><div class="line">└── rules<span class="selector-class">.jpg</span></div><div class="line">本地图片测试.md</div></pre></td></tr></table></figure></p>
-<p>这样的目录结构（目录名和文章名一致），只要使用<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">logo</span>](<span class="link">本地图片测试/logo.jpg</span>)</div></pre></td></tr></table></figure></p>
-<p>就可以插入图片。其中[]里面写相关图片标题。</p>
+        <h3 id="线上问题排查"><a href="#线上问题排查" class="headerlink" title="线上问题排查"></a>线上问题排查</h3><p>ssh登录相关server，然后你可以想干什么干什么了。。。</p>
+<p>查看谋渠道出现的问题,使用grep命令，相关参数可<a href="http://man.linuxde.net/grep" target="_blank" rel="external">参考</a><br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat  <span class="built_in">sec</span>-adv.<span class="keyword">stdout</span>.<span class="built_in">log</span> |grep  <span class="string">"08-0"</span></div></pre></td></tr></table></figure></p>
+<p>-C 显示前后20行</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat  <span class="built_in">sec</span>-adv.<span class="keyword">stdout</span>.<span class="built_in">log</span> |grep  <span class="string">"08-0"</span> -C30</div></pre></td></tr></table></figure>
+<p>统计广告拉取错误次数   -c 计算符合范本样式的列数。</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat  <span class="built_in">sec</span>-adv.<span class="keyword">stdout</span>.<span class="built_in">log</span> |grep  <span class="string">"Fetch ad error"</span> -c</div></pre></td></tr></table></figure>
+<p>重定向到日志文件<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat  <span class="built_in">sec</span>-adv.<span class="keyword">stdout</span>.<span class="built_in">log</span> |grep  <span class="string">"Fetch ad error"</span> &gt; exception.<span class="built_in">log</span></div></pre></td></tr></table></figure></p>
+<p>远程拷贝到本地<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp c3_fetchAdError.log oliver<span class="variable">@ip</span><span class="symbol">:/Users/oliver/tem</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -447,13 +450,13 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/线上/" rel="tag"># 线上</a>
           
-            <a href="/tags/图片引用/" rel="tag"># 图片引用</a>
+            <a href="/tags/日志/" rel="tag"># 日志</a>
           
-            <a href="/tags/tags/" rel="tag"># tags</a>
+            <a href="/tags/log/" rel="tag"># log</a>
           
-            <a href="/tags/plugin/" rel="tag"># plugin</a>
+            <a href="/tags/问题排查/" rel="tag"># 问题排查</a>
           
         </div>
       
@@ -466,8 +469,8 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/17/crawler4j-jsoup/" rel="next" title="crawler4j+jsoup实现网页内容抓取">
-                <i class="fa fa-chevron-left"></i> crawler4j+jsoup实现网页内容抓取
+              <a href="/2017/03/08/hbase-use/" rel="next" title="Hbase常用命令">
+                <i class="fa fa-chevron-left"></i> Hbase常用命令
               </a>
             
           </div>
@@ -475,10 +478,6 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/08/hbase-use/" rel="prev" title="Hbase常用命令">
-                Hbase常用命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -504,8 +503,8 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/17/hexo-image/"
-           data-title="Hexo 图片引用解决方案" data-url="https://mioliver.github.io/2017/02/17/hexo-image/">
+      <div class="ds-thread" data-thread-key="2017/03/09/log-grep/"
+           data-title="线上日志排查" data-url="https://mioliver.github.io/2017/03/09/log-grep/">
       </div>
     
   </div>
@@ -634,7 +633,7 @@ hexo 标签方式1.首先确认_config.yml 中有 post_asset_folder:true。Hexo 
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#传统方式"><span class="nav-number">1.</span> <span class="nav-text">传统方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-标签方式"><span class="nav-number">2.</span> <span class="nav-text">hexo 标签方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件推荐"><span class="nav-number">3.</span> <span class="nav-text">插件推荐</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线上问题排查"><span class="nav-number">1.</span> <span class="nav-text">线上问题排查</span></a></li></ol></div>
             
 
           </div>
