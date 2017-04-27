@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="线上,日志,log,问题排查," />
+  <meta name="keywords" content="redis,sed,导入,导出," />
 
 
 
@@ -87,31 +87,22 @@
 
 
 
-<meta name="description" content="线上问题排查ssh登录相关server，然后你可以想干什么干什么了。。。
-查看谋渠道出现的问题,使用grep命令，相关参数可参考1cat  sec-adv.stdout.log |grep  &quot;08-0&quot;
--C 显示前后20行
-1cat  sec-adv.stdout.log |grep  &quot;08-0&quot; -C30
-统计广告拉取错误次数   -c 计算符合范本样式的列数。
-1cat  sec-adv">
+<meta name="description" content="简单的数据导出导出方法:
+redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers universal.01-2.imei&quot; | redis-cluster &amp;gt;&amp;gt; overseaimei.raw
+此处的redis-cluster重使用alias替换了1alias redis-cluster=&apos;redis-cli -h 10.*.*.* -p 6382">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线上日志排查">
-<meta property="og:url" content="https://mioliver.github.io/2017/03/09/log-grep/index.html">
+<meta property="og:title" content="redis数据导入导出">
+<meta property="og:url" content="https://mioliver.github.io/2017/04/25/redis-export/index.html">
 <meta property="og:site_name" content="Oliver's Notes">
-<meta property="og:description" content="线上问题排查ssh登录相关server，然后你可以想干什么干什么了。。。
-查看谋渠道出现的问题,使用grep命令，相关参数可参考1cat  sec-adv.stdout.log |grep  &quot;08-0&quot;
--C 显示前后20行
-1cat  sec-adv.stdout.log |grep  &quot;08-0&quot; -C30
-统计广告拉取错误次数   -c 计算符合范本样式的列数。
-1cat  sec-adv">
-<meta property="og:updated_time" content="2017-03-10T01:33:15.000Z">
+<meta property="og:description" content="简单的数据导出导出方法:
+redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers universal.01-2.imei&quot; | redis-cluster &amp;gt;&amp;gt; overseaimei.raw
+此处的redis-cluster重使用alias替换了1alias redis-cluster=&apos;redis-cli -h 10.*.*.* -p 6382">
+<meta property="og:updated_time" content="2017-04-27T03:37:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线上日志排查">
-<meta name="twitter:description" content="线上问题排查ssh登录相关server，然后你可以想干什么干什么了。。。
-查看谋渠道出现的问题,使用grep命令，相关参数可参考1cat  sec-adv.stdout.log |grep  &quot;08-0&quot;
--C 显示前后20行
-1cat  sec-adv.stdout.log |grep  &quot;08-0&quot; -C30
-统计广告拉取错误次数   -c 计算符合范本样式的列数。
-1cat  sec-adv">
+<meta name="twitter:title" content="redis数据导入导出">
+<meta name="twitter:description" content="简单的数据导出导出方法:
+redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers universal.01-2.imei&quot; | redis-cluster &amp;gt;&amp;gt; overseaimei.raw
+此处的redis-cluster重使用alias替换了1alias redis-cluster=&apos;redis-cli -h 10.*.*.* -p 6382">
 
 
 
@@ -139,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://mioliver.github.io/2017/03/09/log-grep/"/>
+  <link rel="canonical" href="https://mioliver.github.io/2017/04/25/redis-export/"/>
 
 
 
 
 
-  <title> 线上日志排查 | Oliver's Notes </title>
+  <title> redis数据导入导出 | Oliver's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -291,7 +282,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/03/09/log-grep/">
+  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/04/25/redis-export/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Oliver">
@@ -315,7 +306,7 @@
             
             
               
-                线上日志排查
+                redis数据导入导出
               
             
           </h1>
@@ -330,8 +321,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-09T17:08:56+08:00">
-                2017-03-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T11:21:20+08:00">
+                2017-04-25
               </time>
             
 
@@ -371,8 +362,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/09/log-grep/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/log-grep/" itemprop="commentCount"></span>
+                <a href="/2017/04/25/redis-export/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/25/redis-export/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -398,14 +389,19 @@
       
 
       
-        <h3 id="线上问题排查"><a href="#线上问题排查" class="headerlink" title="线上问题排查"></a>线上问题排查</h3><p>ssh登录相关server，然后你可以想干什么干什么了。。。</p>
-<p>查看谋渠道出现的问题,使用grep命令，相关参数可<a href="http://man.linuxde.net/grep" target="_blank" rel="external">参考</a><br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat  <span class="built_in">sec</span>-adv.<span class="keyword">stdout</span>.<span class="built_in">log</span> |grep  <span class="string">"08-0"</span></div></pre></td></tr></table></figure></p>
-<p>-C 显示前后20行</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat  <span class="built_in">sec</span>-adv.<span class="keyword">stdout</span>.<span class="built_in">log</span> |grep  <span class="string">"08-0"</span> -C30</div></pre></td></tr></table></figure>
-<p>统计广告拉取错误次数   -c 计算符合范本样式的列数。</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat  <span class="built_in">sec</span>-adv.<span class="keyword">stdout</span>.<span class="built_in">log</span> |grep  <span class="string">"Fetch ad error"</span> -c</div></pre></td></tr></table></figure>
-<p>重定向到日志文件<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat  <span class="built_in">sec</span>-adv.<span class="keyword">stdout</span>.<span class="built_in">log</span> |grep  <span class="string">"Fetch ad error"</span> &gt; exception.<span class="built_in">log</span></div></pre></td></tr></table></figure></p>
-<p>远程拷贝到本地<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp c3_fetchAdError.log oliver<span class="variable">@ip</span><span class="symbol">:/Users/oliver/tem</span></div></pre></td></tr></table></figure></p>
+        <p>简单的数据导出导出方法:</p>
+<h2 id="redis数据导出"><a href="#redis数据导出" class="headerlink" title="redis数据导出"></a>redis数据导出</h2><p>导出数据到某个文件overseaimei中<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo <span class="string">"smembers universal.01-2.imei"</span> <span class="string">| redis-cluster &gt;&gt; overseaimei.raw</span></div></pre></td></tr></table></figure></p>
+<p>此处的redis-cluster重使用alias替换了<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alias</span> redis-<span class="keyword">cluster</span>=<span class="string">'redis-cli -h 10.*.*.* -p 6382 -c'</span></div></pre></td></tr></table></figure></p>
+<p>等同于<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo <span class="string">"smembers universal.01-2.imei"</span> | redis-cli -h <span class="number">10.</span>*.*.* -p <span class="number">6382</span> -c &gt;&gt; overseaimei.raw</div></pre></td></tr></table></figure></p>
+<h2 id="redis数据导入"><a href="#redis数据导入" class="headerlink" title="redis数据导入"></a>redis数据导入</h2><p>上述方式导出的是原始数据,在导入数据之前做一下简单数据处理,原始数据格式是这样的:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">5</span>acac4d190c93efa38964a66d4e7d996</div><div class="line"><span class="number">3e6</span>cba815feb7bc14019fd17806b42e4</div><div class="line"><span class="number">50</span>fedc7fff6024a307d9459e93c66647</div><div class="line"><span class="number">148</span>eb49a710b839ca78569767ddb11bb</div><div class="line"><span class="number">41e1</span>ea70094bb91f583b05424521b047</div></pre></td></tr></table></figure></p>
+<p>开头每行加一下redis的add命令,使用sed命令,具体用法参考下面说明:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed <span class="string">'s/^/sadd universal.01-2.imei /g'</span> overseaimei.raw  <span class="meta">&gt;&gt; </span>backimei.txt</div></pre></td></tr></table></figure></p>
+<p>更改完后的数据:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei a2e8abe1a087be26fc011db57a9e7b30</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei fe99ee3d3d48f878666c5482d2310632</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">5</span>acac4d190c93efa38964a66d4e7d996</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">3e6</span>cba815feb7bc14019fd17806b42e4</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">50</span>fedc7fff6024a307d9459e93c66647</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">148</span>eb49a710b839ca78569767ddb11b</div></pre></td></tr></table></figure></p>
+<p>执行导入操作:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat backimei.txt | redis-cli -h <span class="number">10.38</span>.*.* -p <span class="number">6380</span> -c</div></pre></td></tr></table></figure></p>
+<p>至此完成导入操作,= O(∩_∩)O~</p>
+<h2 id="sed-简单用法"><a href="#sed-简单用法" class="headerlink" title="sed 简单用法"></a>sed 简单用法</h2><p>详细可以参考陈浩老师的<a href="http://coolshell.cn/articles/9104.html" target="_blank" rel="external">博客</a><br>相关正则表达式<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">^ 表示一行的开头。如：<span class="regexp">/^#/</span> 以<span class="comment">#开头的匹配。</span></div><div class="line">$ 表示一行的结尾。如：<span class="regexp">/&#125;$/</span> 以&#125;结尾的匹配。</div><div class="line"><span class="string">\&lt;</span> 表示词首。 如 <span class="string">\&lt;abc</span> 表示以 abc 为首的詞。</div><div class="line"><span class="string">\&gt;</span> 表示词尾。 如 abc<span class="string">\&gt;</span> 表示以 abc 結尾的詞。</div><div class="line">. 表示任何单个字符。</div><div class="line">* 表示某个字符出现了<span class="number">0</span>次或多次。</div><div class="line">[ ] 字符集合。 如：[abc]表示匹配a或b或c，还有[a-zA-Z]表示匹配所有的<span class="number">26</span>个字符。如果其中有^表示反，如[^a]表示非a的字符</div></pre></td></tr></table></figure></p>
+<p>例子:<br>在每一行最前面加点东西：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sed</span> <span class="string">'s/^/#/g'</span> pets.txt</div></pre></td></tr></table></figure></p>
+<p>s表示替换命令，/^表示开头，/#表示把匹配替换成#，/g 表示一行上的替换所有的匹配,简单解释就是在行首添加#</p>
+<p>同样的在每一行尾加点东西：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed <span class="symbol">'s</span>/$/ <span class="comment">--- /g' pets.txt</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -450,13 +446,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/线上/" rel="tag"># 线上</a>
+            <a href="/tags/redis/" rel="tag"># redis</a>
           
-            <a href="/tags/日志/" rel="tag"># 日志</a>
+            <a href="/tags/sed/" rel="tag"># sed</a>
           
-            <a href="/tags/log/" rel="tag"># log</a>
+            <a href="/tags/导入/" rel="tag"># 导入</a>
           
-            <a href="/tags/问题排查/" rel="tag"># 问题排查</a>
+            <a href="/tags/导出/" rel="tag"># 导出</a>
           
         </div>
       
@@ -469,8 +465,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/08/hbase-use/" rel="next" title="Hbase常用命令">
-                <i class="fa fa-chevron-left"></i> Hbase常用命令
+              <a href="/2017/03/27/elk-mac/" rel="next" title="ELK 本地环境搭建">
+                <i class="fa fa-chevron-left"></i> ELK 本地环境搭建
               </a>
             
           </div>
@@ -478,10 +474,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/22/java-generic/" rel="prev" title="Java 泛型">
-                Java 泛型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -507,8 +499,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/09/log-grep/"
-           data-title="线上日志排查" data-url="https://mioliver.github.io/2017/03/09/log-grep/">
+      <div class="ds-thread" data-thread-key="2017/04/25/redis-export/"
+           data-title="redis数据导入导出" data-url="https://mioliver.github.io/2017/04/25/redis-export/">
       </div>
     
   </div>
@@ -637,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线上问题排查"><span class="nav-number">1.</span> <span class="nav-text">线上问题排查</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis数据导出"><span class="nav-number">1.</span> <span class="nav-text">redis数据导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis数据导入"><span class="nav-number">2.</span> <span class="nav-text">redis数据导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed-简单用法"><span class="nav-number">3.</span> <span class="nav-text">sed 简单用法</span></a></li></ol></div>
             
 
           </div>
