@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="redis,sed,导入,导出," />
+  <meta name="keywords" content="redis,分布式数据一致性,DB," />
 
 
 
@@ -87,22 +87,25 @@
 
 
 
-<meta name="description" content="简单的数据导出导出方法:
-redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers universal.01-2.imei&quot; | redis-cluster &amp;gt;&amp;gt; overseaimei.raw
-此处的redis-cluster重使用alias替换了1alias redis-cluster=&apos;redis-cli -h 10.*.*.* -p 6382">
+<meta name="description" content="缓存和DB的数据一致性redis与Mysql的数据一致性问题,有时候我们为了提高系统的反应速度,减少IO频率,会选择减少db的读压力，使用cache做缓存,加快读速度.
+缓存的选择
+缓存:redis (redis-cluster) / memcache
+JVM 堆内存: (server端的本地缓存) ,适合存放简短的数据,如果数据量较大会影响server的堆内存,影响GC,对于并发量比较高的可以选">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis数据导入导出">
-<meta property="og:url" content="https://mioliver.github.io/2017/04/25/redis-export/index.html">
+<meta property="og:title" content="分布式服务 —— redis和DB数据一致性">
+<meta property="og:url" content="https://mioliver.github.io/2017/07/09/redisAndDB/index.html">
 <meta property="og:site_name" content="Oliver's Notes">
-<meta property="og:description" content="简单的数据导出导出方法:
-redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers universal.01-2.imei&quot; | redis-cluster &amp;gt;&amp;gt; overseaimei.raw
-此处的redis-cluster重使用alias替换了1alias redis-cluster=&apos;redis-cli -h 10.*.*.* -p 6382">
-<meta property="og:updated_time" content="2017-04-27T03:37:17.000Z">
+<meta property="og:description" content="缓存和DB的数据一致性redis与Mysql的数据一致性问题,有时候我们为了提高系统的反应速度,减少IO频率,会选择减少db的读压力，使用cache做缓存,加快读速度.
+缓存的选择
+缓存:redis (redis-cluster) / memcache
+JVM 堆内存: (server端的本地缓存) ,适合存放简短的数据,如果数据量较大会影响server的堆内存,影响GC,对于并发量比较高的可以选">
+<meta property="og:updated_time" content="2017-07-20T12:56:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis数据导入导出">
-<meta name="twitter:description" content="简单的数据导出导出方法:
-redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers universal.01-2.imei&quot; | redis-cluster &amp;gt;&amp;gt; overseaimei.raw
-此处的redis-cluster重使用alias替换了1alias redis-cluster=&apos;redis-cli -h 10.*.*.* -p 6382">
+<meta name="twitter:title" content="分布式服务 —— redis和DB数据一致性">
+<meta name="twitter:description" content="缓存和DB的数据一致性redis与Mysql的数据一致性问题,有时候我们为了提高系统的反应速度,减少IO频率,会选择减少db的读压力，使用cache做缓存,加快读速度.
+缓存的选择
+缓存:redis (redis-cluster) / memcache
+JVM 堆内存: (server端的本地缓存) ,适合存放简短的数据,如果数据量较大会影响server的堆内存,影响GC,对于并发量比较高的可以选">
 
 
 
@@ -130,13 +133,13 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
 
 
 
-  <link rel="canonical" href="https://mioliver.github.io/2017/04/25/redis-export/"/>
+  <link rel="canonical" href="https://mioliver.github.io/2017/07/09/redisAndDB/"/>
 
 
 
 
 
-  <title> redis数据导入导出 | Oliver's Notes </title>
+  <title> 分布式服务 —— redis和DB数据一致性 | Oliver's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -282,7 +285,7 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/04/25/redis-export/">
+  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/07/09/redisAndDB/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Oliver">
@@ -306,7 +309,7 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
             
             
               
-                redis数据导入导出
+                分布式服务 —— redis和DB数据一致性
               
             
           </h1>
@@ -321,8 +324,8 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T11:21:20+08:00">
-                2017-04-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-09T17:08:56+08:00">
+                2017-07-09
               </time>
             
 
@@ -344,8 +347,8 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
+                  <a href="/categories/分布式/" itemprop="url" rel="index">
+                    <span itemprop="name">分布式</span>
                   </a>
                 </span>
 
@@ -362,8 +365,8 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/25/redis-export/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/25/redis-export/" itemprop="commentCount"></span>
+                <a href="/2017/07/09/redisAndDB/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/09/redisAndDB/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -389,19 +392,65 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
       
 
       
-        <p>简单的数据导出导出方法:</p>
-<h2 id="redis数据导出"><a href="#redis数据导出" class="headerlink" title="redis数据导出"></a>redis数据导出</h2><p>导出数据到某个文件overseaimei中<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo <span class="string">"smembers universal.01-2.imei"</span> <span class="string">| redis-cluster &gt;&gt; overseaimei.raw</span></div></pre></td></tr></table></figure></p>
-<p>此处的redis-cluster重使用alias替换了<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alias</span> redis-<span class="keyword">cluster</span>=<span class="string">'redis-cli -h 10.*.*.* -p 6382 -c'</span></div></pre></td></tr></table></figure></p>
-<p>等同于<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo <span class="string">"smembers universal.01-2.imei"</span> | redis-cli -h <span class="number">10.</span>*.*.* -p <span class="number">6382</span> -c &gt;&gt; overseaimei.raw</div></pre></td></tr></table></figure></p>
-<h2 id="redis数据导入"><a href="#redis数据导入" class="headerlink" title="redis数据导入"></a>redis数据导入</h2><p>上述方式导出的是原始数据,在导入数据之前做一下简单数据处理,原始数据格式是这样的:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">5</span>acac4d190c93efa38964a66d4e7d996</div><div class="line"><span class="number">3e6</span>cba815feb7bc14019fd17806b42e4</div><div class="line"><span class="number">50</span>fedc7fff6024a307d9459e93c66647</div><div class="line"><span class="number">148</span>eb49a710b839ca78569767ddb11bb</div><div class="line"><span class="number">41e1</span>ea70094bb91f583b05424521b047</div></pre></td></tr></table></figure></p>
-<p>开头每行加一下redis的add命令,使用sed命令,具体用法参考下面说明:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed <span class="string">'s/^/sadd universal.01-2.imei /g'</span> overseaimei.raw  <span class="meta">&gt;&gt; </span>backimei.txt</div></pre></td></tr></table></figure></p>
-<p>更改完后的数据:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei a2e8abe1a087be26fc011db57a9e7b30</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei fe99ee3d3d48f878666c5482d2310632</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">5</span>acac4d190c93efa38964a66d4e7d996</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">3e6</span>cba815feb7bc14019fd17806b42e4</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">50</span>fedc7fff6024a307d9459e93c66647</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">148</span>eb49a710b839ca78569767ddb11b</div></pre></td></tr></table></figure></p>
-<p>执行导入操作:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat backimei.txt | redis-cli -h <span class="number">10.38</span>.*.* -p <span class="number">6380</span> -c</div></pre></td></tr></table></figure></p>
-<p>至此完成导入操作,= O(∩_∩)O~</p>
-<h2 id="sed-简单用法"><a href="#sed-简单用法" class="headerlink" title="sed 简单用法"></a>sed 简单用法</h2><p>详细可以参考陈浩老师的<a href="http://coolshell.cn/articles/9104.html" target="_blank" rel="external">博客</a><br>相关正则表达式<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">^ 表示一行的开头。如：<span class="regexp">/^#/</span> 以<span class="comment">#开头的匹配。</span></div><div class="line">$ 表示一行的结尾。如：<span class="regexp">/&#125;$/</span> 以&#125;结尾的匹配。</div><div class="line"><span class="string">\&lt;</span> 表示词首。 如 <span class="string">\&lt;abc</span> 表示以 abc 为首的詞。</div><div class="line"><span class="string">\&gt;</span> 表示词尾。 如 abc<span class="string">\&gt;</span> 表示以 abc 結尾的詞。</div><div class="line">. 表示任何单个字符。</div><div class="line">* 表示某个字符出现了<span class="number">0</span>次或多次。</div><div class="line">[ ] 字符集合。 如：[abc]表示匹配a或b或c，还有[a-zA-Z]表示匹配所有的<span class="number">26</span>个字符。如果其中有^表示反，如[^a]表示非a的字符</div></pre></td></tr></table></figure></p>
-<p>例子:<br>在每一行最前面加点东西：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sed</span> <span class="string">'s/^/#/g'</span> pets.txt</div></pre></td></tr></table></figure></p>
-<p>s表示替换命令，/^表示开头，/#表示把匹配替换成#，/g 表示一行上的替换所有的匹配,简单解释就是在行首添加#</p>
-<p>同样的在每一行尾加点东西：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed <span class="symbol">'s</span>/$/ <span class="comment">--- /g' pets.txt</span></div></pre></td></tr></table></figure></p>
+        <h1 id="缓存和DB的数据一致性"><a href="#缓存和DB的数据一致性" class="headerlink" title="缓存和DB的数据一致性"></a>缓存和DB的数据一致性</h1><p>redis与Mysql的数据一致性问题,有时候我们为了提高系统的反应速度,减少IO频率,会选择减少db的读压力，使用cache做缓存,加快读速度.</p>
+<h2 id="缓存的选择"><a href="#缓存的选择" class="headerlink" title="缓存的选择"></a>缓存的选择</h2><ul>
+<li>缓存:redis (redis-cluster) / memcache</li>
+<li>JVM 堆内存: (server端的本地缓存) ,适合存放简短的数据,如果数据量较大会影响server的堆内存,影响GC,对于并发量比较高的可以选择使用ConcurrentHashMap;</li>
+<li>堆外缓存: 堆外内存就是把内存对象分配在Java虚拟机的堆以外的内存，这些内存直接受操作系统管理（而不是虚拟机），这样做的结果就是能够在一定程度上减少垃圾回收对应用程序造成的影响。</li>
+</ul>
+<p><strong>堆外缓存相关开源实现</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ehcache</td>
+<td>Ehcache 3.0：3.0基于其商业公司一个非开源的堆外组件的实现。</td>
+</tr>
+<tr>
+<td>Chronical Map</td>
+<td>OpenHFT包括很多类库，使用这些类库很少产生垃圾，并且应用程序使用这些类库后也很少发生Minor GC。类库主要包括：Chronicle Map，Chronicle Queue等等。</td>
+</tr>
+<tr>
+<td>OHC</td>
+<td>来源于Cassandra 3.0， Apache v2。</td>
+</tr>
+</tbody>
+</table>
+<p>会引起cache一致性问题。因为db会有事务性导致回滚，而cache无法回滚，会导致脏数据。</p>
+<h2 id="缓存更新问题"><a href="#缓存更新问题" class="headerlink" title="缓存更新问题"></a>缓存更新问题</h2><blockquote>
+<p>【推荐阅读】，缓存架构设计细节二三事：</p>
+</blockquote>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=404087915&amp;idx=1&amp;sn=075664193f334874a3fc87fd4f712ebc&amp;scene=21#wechat_redirect" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=404087915&amp;idx=1&amp;sn=075664193f334874a3fc87fd4f712ebc&amp;scene=21#wechat_redirect</a></p>
+<p>重点说下写：如果写db成功后，更新cache，会有事务性和并发性两方面问题。</p>
+<ol>
+<li><p>事务性问题：<br>一个事务包含多个db操作，操作一些db成功，写cache成功，操作二写db失败，事务回滚，db数据回滚，cache无法回滚，导致脏数据。</p>
+</li>
+<li><p>并发性问题：<br>两个更新操作并发，如更新名字，并且cache中key以名字为关键字，更新一写db成功，写缓存XXXX_name1成功。更新二写db成功，写缓存XXXX_name2成功。导致cache脏数据。</p>
+</li>
+</ol>
+<p>这里再说一下一般更新操作顺序是失效cache，写db，写cache。会有并发问题。</p>
+<p>两个并发操作，更新和读，左边写线程，右边为读线程</p>
+<p>①更新操作删除cache</p>
+<p>②读操作读cache，miss</p>
+<p>③读db，此时是旧数据 </p>
+<p>④写db，写cache</p>
+<p>⑤写cache 导致cache中脏数据。</p>
+<p>虽然写db成功后，失效cache也会有并发问题：更新和读并发<br>①查询cache，miss，读db</p>
+<p>②写db，失效cache</p>
+<p>③写chache</p>
+<p>导致cache中脏数据，但是概率极低，并且一般db中写时间长于读时间，并且写会锁表，读需要在写前进入，并且要晚于写操作更新缓存，所以发生概率极低。</p>
+<h2 id="缓存更新推荐方式"><a href="#缓存更新推荐方式" class="headerlink" title="缓存更新推荐方式"></a>缓存更新推荐方式</h2><p>解决方法是 2PC （两阶段提交协议）或是Paxos协议，代价较大。</p>
+<p>所以我们采用的方式是：</p>
+<ol>
+<li>写数据只写db</li>
+<li>先失效cache，再更新数据更新db，（最好不逆序，具体可以参考推荐文章里的介绍）</li>
+<li>读数据，先读cache，未命中读db，写入cache</li>
+</ol>
 
       
     </div>
@@ -448,11 +497,9 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
           
             <a href="/tags/redis/" rel="tag"># redis</a>
           
-            <a href="/tags/sed/" rel="tag"># sed</a>
+            <a href="/tags/分布式数据一致性/" rel="tag"># 分布式数据一致性</a>
           
-            <a href="/tags/导入/" rel="tag"># 导入</a>
-          
-            <a href="/tags/导出/" rel="tag"># 导出</a>
+            <a href="/tags/DB/" rel="tag"># DB</a>
           
         </div>
       
@@ -465,8 +512,8 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/27/elk-mac/" rel="next" title="ELK 本地环境搭建">
-                <i class="fa fa-chevron-left"></i> ELK 本地环境搭建
+              <a href="/2017/05/11/dynamicProxy/" rel="next" title="AOP & java动态代理">
+                <i class="fa fa-chevron-left"></i> AOP & java动态代理
               </a>
             
           </div>
@@ -474,10 +521,6 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/11/dynamicProxy/" rel="prev" title="AOP & java动态代理">
-                AOP & java动态代理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,8 +546,8 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/25/redis-export/"
-           data-title="redis数据导入导出" data-url="https://mioliver.github.io/2017/04/25/redis-export/">
+      <div class="ds-thread" data-thread-key="2017/07/09/redisAndDB/"
+           data-title="分布式服务 —— redis和DB数据一致性" data-url="https://mioliver.github.io/2017/07/09/redisAndDB/">
       </div>
     
   </div>
@@ -633,7 +676,7 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis数据导出"><span class="nav-number">1.</span> <span class="nav-text">redis数据导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis数据导入"><span class="nav-number">2.</span> <span class="nav-text">redis数据导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed-简单用法"><span class="nav-number">3.</span> <span class="nav-text">sed 简单用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存和DB的数据一致性"><span class="nav-number">1.</span> <span class="nav-text">缓存和DB的数据一致性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存的选择"><span class="nav-number">1.1.</span> <span class="nav-text">缓存的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存更新问题"><span class="nav-number">1.2.</span> <span class="nav-text">缓存更新问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存更新推荐方式"><span class="nav-number">1.3.</span> <span class="nav-text">缓存更新推荐方式</span></a></li></ol></li></ol></div>
             
 
           </div>
