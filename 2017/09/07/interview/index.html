@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="redis,sed,导入,导出," />
+  <meta name="keywords" content="Java,服务端研发,面试," />
 
 
 
@@ -87,22 +87,49 @@
 
 
 
-<meta name="description" content="简单的数据导出导出方法:
-redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers universal.01-2.imei&quot; | redis-cluster &amp;gt;&amp;gt; overseaimei.raw
-此处的redis-cluster重使用alias替换了1alias redis-cluster=&apos;redis-cli -h 10.*.*.* -p 6382">
+<meta name="description" content="笔者要换个城市生活了，因为大北京最近一直下雨，我受不了了（实际上是房价太特么的高了，高的我买不起，现在的钱倒是能买个厕所），回归正题，说一下Java工程师的面试经验。
+Java 基础
+JVM 相关  
+
+
+jvm的内存模型、不同区域的功能。垃圾回收过程、回收策略方式、jvm的优化，经常使用的优化参数代表的意思是什么。
+
+
+JDK 源码
+
+
+hashMap的源码，底层实现原理，代码细节，明白冲突的处">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis数据导入导出">
-<meta property="og:url" content="https://mioliver.github.io/2017/04/25/redis-export/index.html">
+<meta property="og:title" content="Java 服务端研发面试总结">
+<meta property="og:url" content="https://mioliver.github.io/2017/09/07/interview/index.html">
 <meta property="og:site_name" content="Oliver's Notes">
-<meta property="og:description" content="简单的数据导出导出方法:
-redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers universal.01-2.imei&quot; | redis-cluster &amp;gt;&amp;gt; overseaimei.raw
-此处的redis-cluster重使用alias替换了1alias redis-cluster=&apos;redis-cli -h 10.*.*.* -p 6382">
-<meta property="og:updated_time" content="2017-04-27T03:37:17.000Z">
+<meta property="og:description" content="笔者要换个城市生活了，因为大北京最近一直下雨，我受不了了（实际上是房价太特么的高了，高的我买不起，现在的钱倒是能买个厕所），回归正题，说一下Java工程师的面试经验。
+Java 基础
+JVM 相关  
+
+
+jvm的内存模型、不同区域的功能。垃圾回收过程、回收策略方式、jvm的优化，经常使用的优化参数代表的意思是什么。
+
+
+JDK 源码
+
+
+hashMap的源码，底层实现原理，代码细节，明白冲突的处">
+<meta property="og:updated_time" content="2017-09-07T08:28:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis数据导入导出">
-<meta name="twitter:description" content="简单的数据导出导出方法:
-redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers universal.01-2.imei&quot; | redis-cluster &amp;gt;&amp;gt; overseaimei.raw
-此处的redis-cluster重使用alias替换了1alias redis-cluster=&apos;redis-cli -h 10.*.*.* -p 6382">
+<meta name="twitter:title" content="Java 服务端研发面试总结">
+<meta name="twitter:description" content="笔者要换个城市生活了，因为大北京最近一直下雨，我受不了了（实际上是房价太特么的高了，高的我买不起，现在的钱倒是能买个厕所），回归正题，说一下Java工程师的面试经验。
+Java 基础
+JVM 相关  
+
+
+jvm的内存模型、不同区域的功能。垃圾回收过程、回收策略方式、jvm的优化，经常使用的优化参数代表的意思是什么。
+
+
+JDK 源码
+
+
+hashMap的源码，底层实现原理，代码细节，明白冲突的处">
 
 
 
@@ -130,13 +157,13 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
 
 
 
-  <link rel="canonical" href="https://mioliver.github.io/2017/04/25/redis-export/"/>
+  <link rel="canonical" href="https://mioliver.github.io/2017/09/07/interview/"/>
 
 
 
 
 
-  <title> redis数据导入导出 | Oliver's Notes </title>
+  <title> Java 服务端研发面试总结 | Oliver's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -282,7 +309,7 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/04/25/redis-export/">
+  <link itemprop="mainEntityOfPage" href="https://mioliver.github.io/2017/09/07/interview/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Oliver">
@@ -306,7 +333,7 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
             
             
               
-                redis数据导入导出
+                Java 服务端研发面试总结
               
             
           </h1>
@@ -321,8 +348,8 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T11:21:20+08:00">
-                2017-04-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T16:22:32+08:00">
+                2017-09-07
               </time>
             
 
@@ -332,28 +359,6 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -362,8 +367,8 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/25/redis-export/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/25/redis-export/" itemprop="commentCount"></span>
+                <a href="/2017/09/07/interview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/07/interview/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -389,19 +394,60 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
       
 
       
-        <p>简单的数据导出导出方法:</p>
-<h2 id="redis数据导出"><a href="#redis数据导出" class="headerlink" title="redis数据导出"></a>redis数据导出</h2><p>导出数据到某个文件overseaimei中<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo <span class="string">"smembers universal.01-2.imei"</span> <span class="string">| redis-cluster &gt;&gt; overseaimei.raw</span></div></pre></td></tr></table></figure></p>
-<p>此处的redis-cluster重使用alias替换了<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alias</span> redis-<span class="keyword">cluster</span>=<span class="string">'redis-cli -h 10.*.*.* -p 6382 -c'</span></div></pre></td></tr></table></figure></p>
-<p>等同于<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo <span class="string">"smembers universal.01-2.imei"</span> | redis-cli -h <span class="number">10.</span>*.*.* -p <span class="number">6382</span> -c &gt;&gt; overseaimei.raw</div></pre></td></tr></table></figure></p>
-<h2 id="redis数据导入"><a href="#redis数据导入" class="headerlink" title="redis数据导入"></a>redis数据导入</h2><p>上述方式导出的是原始数据,在导入数据之前做一下简单数据处理,原始数据格式是这样的:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">5</span>acac4d190c93efa38964a66d4e7d996</div><div class="line"><span class="number">3e6</span>cba815feb7bc14019fd17806b42e4</div><div class="line"><span class="number">50</span>fedc7fff6024a307d9459e93c66647</div><div class="line"><span class="number">148</span>eb49a710b839ca78569767ddb11bb</div><div class="line"><span class="number">41e1</span>ea70094bb91f583b05424521b047</div></pre></td></tr></table></figure></p>
-<p>开头每行加一下redis的add命令,使用sed命令,具体用法参考下面说明:<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed <span class="string">'s/^/sadd universal.01-2.imei /g'</span> overseaimei.raw  <span class="meta">&gt;&gt; </span>backimei.txt</div></pre></td></tr></table></figure></p>
-<p>更改完后的数据:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei a2e8abe1a087be26fc011db57a9e7b30</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei fe99ee3d3d48f878666c5482d2310632</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">5</span>acac4d190c93efa38964a66d4e7d996</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">3e6</span>cba815feb7bc14019fd17806b42e4</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">50</span>fedc7fff6024a307d9459e93c66647</div><div class="line">sadd universal<span class="number">.01</span><span class="number">-2.</span>imei <span class="number">148</span>eb49a710b839ca78569767ddb11b</div></pre></td></tr></table></figure></p>
-<p>执行导入操作:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat backimei.txt | redis-cli -h <span class="number">10.38</span>.*.* -p <span class="number">6380</span> -c</div></pre></td></tr></table></figure></p>
-<p>至此完成导入操作,= O(∩_∩)O~</p>
-<h2 id="sed-简单用法"><a href="#sed-简单用法" class="headerlink" title="sed 简单用法"></a>sed 简单用法</h2><p>详细可以参考陈浩老师的<a href="http://coolshell.cn/articles/9104.html" target="_blank" rel="external">博客</a><br>相关正则表达式<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">^ 表示一行的开头。如：<span class="regexp">/^#/</span> 以<span class="comment">#开头的匹配。</span></div><div class="line">$ 表示一行的结尾。如：<span class="regexp">/&#125;$/</span> 以&#125;结尾的匹配。</div><div class="line"><span class="string">\&lt;</span> 表示词首。 如 <span class="string">\&lt;abc</span> 表示以 abc 为首的詞。</div><div class="line"><span class="string">\&gt;</span> 表示词尾。 如 abc<span class="string">\&gt;</span> 表示以 abc 結尾的詞。</div><div class="line">. 表示任何单个字符。</div><div class="line">* 表示某个字符出现了<span class="number">0</span>次或多次。</div><div class="line">[ ] 字符集合。 如：[abc]表示匹配a或b或c，还有[a-zA-Z]表示匹配所有的<span class="number">26</span>个字符。如果其中有^表示反，如[^a]表示非a的字符</div></pre></td></tr></table></figure></p>
-<p>例子:<br>在每一行最前面加点东西：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sed</span> <span class="string">'s/^/#/g'</span> pets.txt</div></pre></td></tr></table></figure></p>
-<p>s表示替换命令，/^表示开头，/#表示把匹配替换成#，/g 表示一行上的替换所有的匹配,简单解释就是在行首添加#</p>
-<p>同样的在每一行尾加点东西：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sed <span class="symbol">'s</span>/$/ <span class="comment">--- /g' pets.txt</span></div></pre></td></tr></table></figure></p>
+        <p>笔者要换个城市生活了，因为大北京最近一直下雨，我受不了了（实际上是房价太特么的高了，高的我买不起，现在的钱倒是能买个厕所），回归正题，说一下Java工程师的面试经验。</p>
+<h1 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h1><ul>
+<li>JVM 相关  </li>
+</ul>
+<ol>
+<li>jvm的内存模型、不同区域的功能。垃圾回收过程、回收策略方式、jvm的优化，经常使用的优化参数代表的意思是什么。</li>
+</ol>
+<ul>
+<li>JDK 源码</li>
+</ul>
+<ol>
+<li>hashMap的源码，底层实现原理，代码细节，明白冲突的处理过程</li>
+<li>不同类型的变量代表的意思</li>
+<li>异常，以及异常的处理流程。</li>
+</ol>
+<ul>
+<li>高并发相关</li>
+</ul>
+<ol>
+<li>concurrent包里的并发工具类，了解源码和使用场景;</li>
+<li>线程的实现，已经不同线程之间的同步方式都有哪些，相互之间的差异是什么。</li>
+<li>能否自己使用JDK最基础的工具实现多线程的互斥和写作，典型的生产者消费者。</li>
+<li>了解Java线程池的实现原理，相关代码细节</li>
+</ol>
+<h1 id="项目相关"><a href="#项目相关" class="headerlink" title="项目相关"></a>项目相关</h1><ol>
+<li>自己做过的项目一定要总结，找到亮点和挑战点，面试官最通常想知道的不是你做的项目具体是做什么，他关注的通常是你遇到的有挑战性的问题，以及你是怎么解决的。  </li>
+<li>针对项目，面试官通常是由你项目的中东西，慢慢的深入或者发散，提出更有挑战性的题目，看你究竟能了解多少，所以不要企图欺骗他，即使不是你做的项目，但是你把这个项目搞懂了，技术点和难点都明白，基本这个项目就可以为你所用了。</li>
+</ol>
+<h1 id="算法和数据结构"><a href="#算法和数据结构" class="headerlink" title="算法和数据结构"></a>算法和数据结构</h1><ol>
+<li>手写代码，这是大多数公司在前两轮面试中都会使用的面试手段，搞技术的离不开写代码，手写代码的难易程度不尽相同，但是如果你连最基本的排序和相关的算法复杂度都不清楚，基本上通过的概率不会高了。如果你写不出来，可以坦白，但是最好告诉下面试官你的解题思路。</li>
+<li>基本的数据结构，链表、数组、栈、树、堆、图等，还是需要知道的</li>
+</ol>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><ol>
+<li>这个也算是Java web 工程师必备的技能之一吧，熟悉sql的增删改查</li>
+<li>sql 表的设计，以及设计的时候的原则，设计过程中就应该考虑查询的效率问题。</li>
+<li>sql的执行过程，以及如何根据sql的执行过程，选择性提出优化思路。</li>
+</ol>
+<h1 id="大数据相关"><a href="#大数据相关" class="headerlink" title="大数据相关"></a>大数据相关</h1><ol>
+<li>mongoDB redis hbase hive</li>
+<li>hadoop 相关</li>
+<li>spark 离线数据统计</li>
+</ol>
+<h1 id="书单推荐"><a href="#书单推荐" class="headerlink" title="书单推荐"></a>书单推荐</h1><ol>
+<li>《深入理解Java虚拟机：JVM高级特性与最佳实践》</li>
+<li>《Java并发编程实战》</li>
+<li>《java多线程编程核心技术》</li>
+<li>《Effective Java中文版》</li>
+<li>《大型网站技术架构 核心原理与案例分析》</li>
+<li>《大型网站系统与Java中间件实践》</li>
+<li>《从Paxos到ZooKeeper 分布式一致性原理与实践》</li>
+<li>《Spring源码深度解析》</li>
+<li>《Spark 快速大数据分析》、</li>
+<li>《亿级流量网站架构和实践》</li>
+</ol>
 
       
     </div>
@@ -446,13 +492,11 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
       
         <div class="post-tags">
           
-            <a href="/tags/redis/" rel="tag"># redis</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/sed/" rel="tag"># sed</a>
+            <a href="/tags/服务端研发/" rel="tag"># 服务端研发</a>
           
-            <a href="/tags/导入/" rel="tag"># 导入</a>
-          
-            <a href="/tags/导出/" rel="tag"># 导出</a>
+            <a href="/tags/面试/" rel="tag"># 面试</a>
           
         </div>
       
@@ -465,8 +509,8 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/27/elk-mac/" rel="next" title="ELK 本地环境搭建">
-                <i class="fa fa-chevron-left"></i> ELK 本地环境搭建
+              <a href="/2017/07/16/LinkedHashMap-md/" rel="next" title="JDK 之 LinkedHashMap">
+                <i class="fa fa-chevron-left"></i> JDK 之 LinkedHashMap
               </a>
             
           </div>
@@ -474,10 +518,6 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/11/dynamicProxy/" rel="prev" title="AOP & java动态代理">
-                AOP & java动态代理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,8 +543,8 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/25/redis-export/"
-           data-title="redis数据导入导出" data-url="https://mioliver.github.io/2017/04/25/redis-export/">
+      <div class="ds-thread" data-thread-key="2017/09/07/interview/"
+           data-title="Java 服务端研发面试总结" data-url="https://mioliver.github.io/2017/09/07/interview/">
       </div>
     
   </div>
@@ -633,7 +673,7 @@ redis数据导出导出数据到某个文件overseaimei中1echo &quot;smembers u
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis数据导出"><span class="nav-number">1.</span> <span class="nav-text">redis数据导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis数据导入"><span class="nav-number">2.</span> <span class="nav-text">redis数据导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed-简单用法"><span class="nav-number">3.</span> <span class="nav-text">sed 简单用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-基础"><span class="nav-number">1.</span> <span class="nav-text">Java 基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目相关"><span class="nav-number">2.</span> <span class="nav-text">项目相关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法和数据结构"><span class="nav-number">3.</span> <span class="nav-text">算法和数据结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">4.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据相关"><span class="nav-number">5.</span> <span class="nav-text">大数据相关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#书单推荐"><span class="nav-number">6.</span> <span class="nav-text">书单推荐</span></a></li></ol></div>
             
 
           </div>
